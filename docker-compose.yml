@@ -6,12 +6,13 @@ services:
       - /app/node_modules
       - ./frontend:/app
     stdin_open: true
+    mem_limit: 128m
 
   nginx: 
     restart: always
     image: swerd245/docker-nginx
     ports: 
-      - "3000:80"
+      - "80:80"
 
   backend:
     image: swerd245/docker-backend
@@ -19,6 +20,13 @@ services:
     volumes:
       - /app/node_modules
       - ./backend:/app
+    mem_limit: 128m
+    environment: 
+      MYSQL_HOST: $MYSQL_HOST 
+      MYSQL_USER: $MYSQL_USER 
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_PORT: $MYSQL_PORT   
 
   # mysql:
   #   build: ./mysql

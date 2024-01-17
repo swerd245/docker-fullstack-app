@@ -18,7 +18,6 @@ after_success:
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-# 여기 바꿨다고!!
   - docker push swerd245/docker-frontend
   - docker push swerd245/docker-backend
   - docker push swerd245/docker-nginx
@@ -27,8 +26,8 @@ deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
   app: "docker-fullstack-app"
-  env: "DockerFullstackApp-env"
-  bucket_name: elasticbeanstalk-ap-northeast-2-972153559337
+  env: "Docker-Fullstack-App-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-211125418324
   bucket_path: "docker-fullstack-app"
   on:
     branch: main

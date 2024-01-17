@@ -18,9 +18,9 @@ after_success:
 
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
-  - docker push johnahn/docker-frontend
-  - docker push johnahn/docker-backend
-  - docker push johnahn/docker-nginx
+  - docker push swerd245/docker-frontend
+  - docker push swerd245/docker-backend
+  - docker push swerd245/docker-nginx
 
 deploy:
   provider: elasticbeanstalk
